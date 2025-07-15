@@ -247,7 +247,7 @@ patterns and graphics, which previous approaches struggled to preserve.
   [Download the Documenation here.](Documintation.pdf)
   
   ## Project Presentation
-  [Download the presentation here.](Try-On.pptx)
+  [Download the presentation here.](Try-On.pptx.pptx)
   
  --- 
 
