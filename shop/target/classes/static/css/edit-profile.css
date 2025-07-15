@@ -1,0 +1,91 @@
+
+  .cont {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #f9f9f9;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
+
+  .col-25 {
+    flex: 0 0 30%;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .col-75 {
+    flex: 1;
+  }
+
+  .lab {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+  }
+
+  .il, select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  }
+
+  .il:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  #message {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .image-preview {
+    display: block;
+    margin-top: 10px;
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+  }
+
+  @media screen and (max-width: 600px) {
+    .row {
+      flex-direction: column;
+    }
+
+    .col-25, .col-75 {
+      flex: 100%;
+    }
+  }

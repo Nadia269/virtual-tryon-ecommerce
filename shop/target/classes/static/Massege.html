@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Massage</title>
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">   
+    <link rel="stylesheet" href="css/style.css">  
+    <link rel="stylesheet" href="css/responsive.css">   
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/holder.js" defer></script>
+
+    
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+  }
+
+
+  /* Container */
+  .container5 {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 16px 24px 64px;
+    flex-grow: 1;
+  }
+
+
+  /* Data Table Styles */
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgb(0 0 0 / 0.1);
+  }
+
+  thead {
+    background: linear-gradient(90deg, #2c8925 0%, #02300e 100%);
+    color: #f1f5f9;
+    user-select: none;
+  }
+  thead th {
+    text-align: left;
+    padding: 16px 20px;
+    border-bottom: 2px solid #64748b;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #f1f5f9;
+  }
+  tbody tr:hover {
+    background-color: #e0e7ff;
+    cursor: pointer;
+  }
+  tbody td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+  }
+
+
+
+  /* Action buttons */
+  .action-btns {
+    display: flex;
+    gap: 8px;
+  }
+  .action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #475569;
+    font-size: 20px;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+  .action-btn:hover,
+  .action-btn:focus {
+    background-color: #c7d2fe;
+    color: #3730a3;
+    outline: none;
+  }
+
+  /* Responsive Layouts */
+  @media (max-width: 767px) {
+    /* Single column layout */
+
+
+    .hamburger {
+      display: block;
+      color: white;
+      background: none;
+      border: none;
+    }
+    .breadcrumb {
+      display: block;
+      margin-left: 16px;
+    }
+
+    /* Table: stack rows vertically using "card" style per record */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+      width: 100%;
+    }
+    thead tr {
+      display: none; /* Hide header row */
+    }
+    tbody tr {
+      margin-bottom: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      padding: 16px 20px;
+    }
+    tbody td {
+      padding: 8px 0;
+      border: none;
+      position: relative;
+      padding-left: 120px;
+      font-size: 0.95rem;
+    }
+    tbody td.checkbox-cell {
+      padding-left: 8px;
+      text-align: left;
+    }
+    tbody td::before {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      width: 100px;
+      padding-right: 10px;
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #334155;
+      transform: translateY(-50%);
+      content: attr(data-label);
+    }
+    .action-btns {
+      margin-top: 8px;
+      justify-content: flex-start;
+    }
+  }
+
+  @media (min-width: 1440px) {
+
+    table {
+      border-radius: 16px;
+    }
+    thead th {
+      font-size: 1rem;
+      padding: 20px 24px;
+    }
+    tbody td {
+      padding: 16px 24px;
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                    <a class="navbar-brand" href="home-Admin.html"><img src="images/logo.png" class="logo" alt=""></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item"><a class="nav-link" href="home-Admin.html">Home</a></li>
+                         <li class="nav-item"><a class="nav-link" href="Massege.html">Massages</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Add_product.html">Add Product</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:logout()"> <i class="fas fa-sign-out-alt"></i></a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+            </div>
+           
+        </nav>
+        <script>
+    function logout(){
+        setToken(null);
+        window.location.replace("http://localhost:8081/login.html");
+        }
+    </script>
+        <!-- End Navigation -->
+    </header>
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2></h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Massages</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+<main class="container5" role="main">
+  <h1 style="margin-bottom: 24px; font-weight:700; font-size:1.8rem;">The Massages</h1>
+  <table aria-describedby="table-description" role="table">
+    <caption id="table-description" class="sr-only"></caption>
+    <thead>
+      <tr>
+        <th class="checkbox-cell" scope="col" aria-label="Select all rows">
+        </th>
+        <th scope="col" aria-label="Edit, Copy, Delete actions"></th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Message</th>
+        <th scope="col">Submitted At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="checkbox-cell" data-label="Select"></td>
+        <td class="action-btns" data-label="Actions">
+          <button class="action-btn"><a class="fas fa-trash" href="#" ></a></button> 
+        </td>
+        <td data-label="ID"></td>
+        <td data-label="Name"></td>
+        <td data-label="Email"></td>
+        <td data-label="Subject"> </td>
+        <td data-label="Message"></td>
+        <td data-label="Submitted At"></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <script>
+$(document).ready(function(){
+    var url = "http://localhost:8081/contact/Get";
+    console.log("page loaded");  
+    $.ajax({
+        url: url, 
+        type: "GET",
+        headers: getAuthHeaders(),
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+            var tbody = $("table tbody");
+            tbody.empty(); 
+            data.forEach(function(item) {
+                var row = `<tr>
+                    <td class="checkbox-cell" data-label="Select"></td>
+                    <td class="action-btns" data-label="Actions">
+                        <button class="action-btn"><a class="fas fa-trash" href="javascript:delsms(${item.id})"></a></button> 
+                    </td>
+                    <td data-label="ID"></td>
+                    <td data-label="Name">${item.name}</td>
+                    <td data-label="Email">${item.email}</td>
+                    <td data-label="Subject">${item.subject}</td>
+                    <td data-label="Message">${item.msg}</td>
+                    <td data-label="Submitted At">${item.submittedAt}</td>
+                </tr>`;
+                tbody.append(row); 
+            });
+        },
+        error: function() {
+            window.location.replace("http://localhost:8081/login.html");
+        }
+    });
+});
+
+
+        function delsms(id){
+          var url = `http://localhost:8081/contact/del?id=${id}`
+          $.ajax({
+              url:url,
+              type:"GET",
+              headers: getAuthHeaders() ,
+              success: function(){
+                  console.log("item deleted");
+                  window.location.replace("http://localhost:8081/Massege.html");
+              },
+              error: function(jqXHR, textStatus, errorThrown) {
+                console.error("Error deleting item:", textStatus, errorThrown);
+                  console.error("Response text:", jqXHR.responseText);
+              }
+          })
+      }
+
+  </script>
+</main>
+
+
+
+
+      <!-- Start Instagram Feed  -->
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-01.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-02.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-03.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-04.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-05.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-06.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-07.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-08.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-09.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-05.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instagram Feed  -->
+
+
+        <!-- Start Footer  -->
+        <footer>
+            <div class="footer-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-widget">
+                                <h4>About Try & Buy</h4>
+                                <p> Try and buy it's our graduation project from faculty of computer and information helwan university major computer science. Our project goal is to help people how to imagine how clothes can fit on you this makes you sure when you bought clothes online . We hope to find our project good as you imagine 
+                                    </p>
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-link-contact">
+                                
+                                <h4>Contact Us</h4>
+                                <ul>
+                                    <li>
+                                        <p><i class="fas fa-map-marker-alt"></i>Address: Egypt
+                                    </li>
+                                    <li>
+                                        <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:01000000000">010</a></p>
+                                    </li>
+                                    <li>
+                                        <p><i class="fas fa-envelope"></i>Email: <a href="mailto:try&buy@gmail.com">Try&buy@gmail.com</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer  -->
+
+     <!-- Start copyright  -->
+     <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2025 <a href="#">Try&Buy</a> 
+            </p>
+    </div>
+    <!-- End copyright  -->
+     <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>
+

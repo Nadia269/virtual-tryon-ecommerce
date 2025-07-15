@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>about</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        
+        <!-- <div id="navPlaceholder"></div> -->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+    <div class="container">
+        <!-- Start Header Navigation -->
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo" alt=""></a>
+        </div>
+        <!-- End Header Navigation -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="my-account.html">My Account</a></li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+
+        <!-- Start Atribute Navigation -->
+        <div class="attr-nav">
+            <ul>
+                <li class="search">
+                    <a href="cart.html">
+                        <i class="fa fa-shopping-bag"></i>
+                        <span class="badge" id = "countOfProductId">>0</span>
+                    </a>
+                </li>
+
+                <li class="side-menu"><a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                </li>
+            </ul>
+        </div>
+        <!-- End Atribute Navigation -->
+    </div>
+    
+</nav>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/holder.js" defer></script>
+
+<script>
+    
+$(document).ready(function(){
+    $.ajax({
+        url: `http://localhost:8081/Car/product`,
+        type: "GET",
+        headers: getAuthHeaders(),
+        dataType: "json",
+        success: function (response) {
+            console.log("Number of products: ", response)
+            $('#countOfProductId').text(response);
+        },
+        error: function (xhr, status, error) {
+            window.location.replace("login.html")
+        }
+    });
+})           
+    
+
+</script>
+
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
+
+
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>ABOUT US</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">ABOUT US</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+    <!-- Start About Page  -->
+    <div class="about-box-main">
+        <div class="container">
+            <div class="row" style="margin-bottom: 120px;">
+                <div class="col-lg-6">
+                    <h2 class="noo-sh-title">We are <span>Try & Buy</span></h2>
+                    <p>"Try and buy it's our graduation project from faculty of computer and information helwan university major computer science. Our project goal is to help people how to imagine how clothes can fit on you this makes you sure when you bought clothes online . We hope to find our project good as you imagine "</p>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p> -->
+                </div>
+                <div class="col-lg-6">
+                    <div class="banner-frame" style="float: right;"> <img class="img-thumbnail img-fluid" src="images/try&buy1.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row my-5">
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="service-block-inner">
+                        <h3>We are Trusted</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="service-block-inner">
+                        <h3>We are Professional</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="service-block-inner">
+                        <h3>We are Expert</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    </div>
+                </div>
+
+            </div> -->
+            
+            
+            
+            <div class="row my-4">
+                <div class="col-12">
+                    <h2 class="noo-sh-title">Meet Our Team</h2>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="hover-team">
+                        <div class="our-team"> <img src="images/pic.jpg" alt="" />
+                            <div class="team-content">
+                                <h3 class="title">Amira Hassan</h3> <span class="post">Backend Developer</span> </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fab fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-twitter"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-youtube"></a>
+                                </li>
+                            </ul>
+                            <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                        </div>
+                        <div class="team-description">
+                            <p>Amira is a skilled backend developer specializing in server-side architecture, databases, and API development. She builds robust, scalable systems for modern web applications while ensuring optimal performance and security.
+                        </div>
+                        <hr class="my-0"> </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="hover-team">
+                        <div class="our-team"> <img src="images/pic.jpg" alt="" />
+                            <div class="team-content">
+                                <h3 class="title">Nadia Talaat</h3> <span class="post">Machine Learning Engineer</span> </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fab fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-twitter"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-youtube"></a>
+                                </li>
+                            </ul>
+                            <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                        </div>
+                        <div class="team-description">
+                            <p>Nadia is a skilled ML engineer specializing in deep learning, computer vision, and model optimization. She develops and fine-tunes advanced AI models for real-world applications, bridging research and deployment for innovative e-commerce solutions.
+. </p>
+                        </div>
+                        <hr class="my-0"> </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="hover-team">
+                        <div class="our-team"> <img src="images/pic.jpg" alt="" />
+                            <div class="team-content">
+                                <h3 class="title">Nada Abdelrahman </h3> <span class="post">Backend Developer</span> </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fab fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-twitter"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-youtube"></a>
+                                </li>
+                            </ul>
+                            <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                        </div>
+                        <div class="team-description">
+                            <p>Nada is a talented backend developer with expertise in database management, server infrastructure, and API integration. She creates reliable, high-performance systems that support complex web applications while maintaining strong security standards and code quality. </p>
+                        </div>
+                        <hr class="my-0"> </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="hover-team">
+                        <div class="our-team"> <img src="images/boy.jpg" alt="" />
+                            <div class="team-content">
+                                <h3 class="title">Abdelrahman Magedy</h3> <span class="post">Backend Developer</span> </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fab fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-twitter"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-youtube"></a>
+                                </li>
+                            </ul>
+                            <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                        </div>
+                        <div class="team-description">
+                            <p>Abdelrahman is a proficient backend developer focused on system architecture, database optimization, and seamless API design. He develops secure, scalable solutions for web applications while prioritizing performance efficiency and maintaining high coding standards.</p>
+                        </div>
+                        <hr class="my-0"> </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="hover-team">
+                        <div class="our-team"> <img src="images/boy.jpg" alt="" />
+                            <div class="team-content">
+                                <h3 class="title">Abdallah Rageb </h3> <span class="post">Machine Learning Engineer </span> </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fab fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-twitter"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-youtube"></a>
+                                </li>
+                            </ul>
+                            <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                        </div>
+                        <div class="team-description">
+                            <p>Abdallah is a skilled ML engineer who develops intelligent systems and predictive models. He specializes in end-to-end ML pipelines and model deployment, ensuring seamless integration from development to production while maintaining optimal performance.
+ </p>
+                        </div>
+                        <hr class="my-0"> </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="hover-team">
+                        <div class="our-team"> <img src="images/boy.jpg" alt="" />
+                            <div class="team-content">
+                                <h3 class="title">Shawky Hussien </h3> <span class="post">Frontend Developer</span> </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fab fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-twitter"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fab fa-youtube"></a>
+                                </li>
+                            </ul>
+                            <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                        </div>
+                        <div class="team-description">
+                            <p>Shawky is a creative frontend developer who crafts intuitive, responsive interfaces using modern web technologies. He specializes in React, Vue.js, and JavaScript, focusing on seamless user experiences with clean, accessible designs across all devices. </p>
+                        </div>
+                        <hr class="my-0"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About Page -->
+
+    <!-- Start Instagram Feed  -->
+   <div class="instagram-box">
+    <div class="main-instagram owl-carousel owl-theme">
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-01.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-02.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-03.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-04.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-05.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-06.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-07.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-08.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-09.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="../images/instagram-img-05.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- End Instagram Feed  -->
+
+
+    <!-- Start Footer  -->
+    <div id="mainfooterplaceholder"></div>
+    <!-- End Footer  -->
+
+    <!-- Start copyright  -->
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2025 <a href="#"> Try & Buy</a>
+    </div>
+    <!-- End copyright  -->
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <script>
+    $(function(){
+        $("#mainfooterplaceholder").load("Basics/mainFooter.html");
+        $("#navPlaceholder").load("Basics/nav.html")
+    });
+</script>
+
+    <!-- ALL JS FILES -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+
+</html>

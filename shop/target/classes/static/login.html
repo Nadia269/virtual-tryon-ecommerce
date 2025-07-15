@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/login.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/style - Copy.css">
+        <link rel="stylesheet" href="css/login.css">
+        <!-- Font Open Sans -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <title>LOGIN</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/holder.js" defer></script>
+
+        <!--google login-->
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    </head>
+    <body>
+        <section>
+          <div class="box">
+            <div class="value">
+              <form id="loginForm">
+                <div class="head">Login</div>
+      
+                <div class="social">
+                  <h4>Connect with</h4>
+                  <ul>
+                    <li> 
+                      <a href="http://localhost:8081/login/oauth2/code/facebook" class="facebook">
+                        <span class="fa fa-facebook"></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="twitter">
+                        <span class="fa fa-twitter"></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="http://localhost:8081/oauth2/authorization/google" class="btn google-login">
+                        <span class="fa fa-google-plus"></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+      
+                <div class="divider">
+                  <span>or</span>
+                </div>
+      
+                <div class="input">
+                  <input type="email" name="email" id="email" required>
+                  <label>Email</label>
+                </div>
+      
+                <div class="input">
+                  <input type="password" name="password" id="password" required>
+                  <label>Password</label>
+                </div>
+      
+                <div class="forget">
+                  <label>
+                    <input type="checkbox"> Remember me 
+                    <a href="reset-password.html">Forget password?</a>
+                  </label>
+                </div>
+      
+                
+      
+                <button class="btn hvr-hover" type="submit">Log In</button>
+      
+                <div class="regester">
+                  <p>Don't have an account? <a href="register.html">Register</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        <script>
+          $(document).ready(function () {
+            $('#loginForm').on('submit', function (event) {
+              event.preventDefault();
+        
+              const formData = {
+                email: $('#email').val(),
+                password: $('#password').val()
+              };
+        
+              $.ajax({
+                url: 'http://localhost:8081/auth/authenticate',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                dataType: 'json',
+                success: function (response) {
+                  // Store token in localStorage or sessionStorage if needed
+                  localStorage.setItem('token', response.token);
+                  const role = response.role;
+        
+                  //alert('Login successful!');
+        
+                  if (role === 'ROLE_USER') {
+                    window.location.replace("http://localhost:8081/index.html");
+                  } else if (role === 'ROLE_ADMIN') {
+                    window.location.replace("http://localhost:8081/home-Admin.html");
+                  } else {
+                    // fallback for unknown roles
+                    window.location.replace("http://localhost:8081/login.html");
+                  }
+                },
+                error: function (xhr, status, error) {
+                  const errorMsg = xhr.responseText ? xhr.responseText : 'Something went wrong';
+                  alert("Login failed");
+                  console.error('Error:', status, error);
+                }
+              });
+            });
+          });
+        </script>
+        
+        
+    </body>
+</html>

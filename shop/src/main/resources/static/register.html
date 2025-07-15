@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style - Copy.css">
+    <link rel="stylesheet" href="css/register.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<section>
+    <div class="container">
+        <!-- Title section -->
+        <div class="title">Sign Up</div>
+        <div class="content">
+            <!-- Registration form -->
+            <form id="registerForm">
+                <div class="user-details">
+                    <!-- Input for Full Name -->
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" placeholder="Enter your name" id="full" required>
+                    </div>
+                    <!-- Input for Username -->
+                    <div class="input-box">
+                        <span class="details">Username</span>
+                        <input type="text" placeholder="Enter your username" id="username" required>
+                    </div>
+                    <!-- Input for Email -->
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="email" placeholder="Enter your email" id="email" required>
+                    </div>
+                    <!-- Input for Phone Number -->
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="text" placeholder="Enter your number" id="phone" required>
+                    </div>
+                    <!-- Input for Password -->
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" placeholder="Enter your password" id="password" required>
+                    </div>
+                    <!-- Input for Confirm Password -->
+                    <!-- <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        <input type="password" placeholder="Confirm your password" id="confirm" required>
+                    </div> -->
+                    <!-- Address -->
+                    <div class="input-box">
+                        <span class="details">Address</span>
+                        <input type="text" placeholder="Enter your address" id="address" required>
+                    </div>
+                    <!-- Zip Code -->
+                    <!-- <div class="input-box">
+                        <span class="details">Zip Code</span>
+                        <input type="text" placeholder="Enter your zipcode" id="zip" required>
+                    </div> -->
+                </div>
+
+                <!-- Message div for success or error -->
+                <div id="registerMessage"></div>
+
+                <!-- Submit button -->
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+                <div class="regester">
+                  <p>Do you  have an account? <a href="login.html">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript -->
+<script>
+    $('#registerForm').on('submit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8081/auth/register',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                fullname: $('#full').val(),
+                username: $('#username').val(),
+                email: $('#email').val(),
+                password: $('#password').val(),
+                phone: $('#phone').val(),
+                address: $('#address').val()
+            }),
+            success: function (response) {
+                $('#registerForm')[0].reset();
+                window.location.replace('http://localhost:8081/login.html');
+            },
+            error: function (xhr) {
+                const errorMessage = xhr.responseJSON?.message || 'Registration failed.';
+                $('#registerMessage').html('<p style="color:red;">' + errorMessage + '</p>');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
