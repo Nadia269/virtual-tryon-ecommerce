@@ -211,30 +211,20 @@ Below are side-by-side comparison images showing the original garment (left) and
 
 <p align="center">
   <img src="images/comparison_048396_0.jpg" alt="Upper Body Comparison" width="600"/>
-  <img src="images/comparison_048392_0.jpg" alt="Upper Body Comparison" width="600"/>
    <img src="images/comparison_048397_0.jpg" alt="Upper Body Comparison" width="600"/>
 </p>
 
 ### 2. Dresses
 
 <p align="center">
-  <img src="images/comparison_051996_0.jpg" alt="Dresses Comparison" width="600"/>
   <img src="images/comparison_051998_0 (1).jpg" alt="Dresses Comparison" width="600"/>
-  <img src="images/comparison_052026_0.jpg" alt="Dresses Comparison" width="600"/>
-  <img src="images/comparison_052021_0.jpg" alt="Dresses Comparison" width="600"/>
-  <img src="images/comparison_052025_0.jpg" alt="Dresses Comparison" width="600"/>
 </p>
 
 ### 3. Lower Body
 
 <p align="center">
-  <img src="images/comparison_050213_0.jpg" alt="Lower Body Comparison" width="600"/>
-  <img src="images/comparison_050206_0.jpg" alt="Lower Body Comparison" width="600"/>
-  <img src="images/comparison_050223_0.jpg" alt="Lower Body Comparison" width="600"/>
   <img src="images/comparison_050203_0.jpg" alt="Lower Body Comparison" width="600"/>
   <img src="images/comparison_050196_0.jpg" alt="Lower Body Comparison" width="600"/>
-  <img src="images/comparison_050215_0.jpg" alt="Lower Body Comparison" width="600"/>
-  <img src="images/comparison_050222_0.jpg" alt="Lower Body Comparison" width="600"/>
 </p>
 
 These visual comparisons demonstrate our model's ability to handle different
