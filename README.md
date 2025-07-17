@@ -217,7 +217,7 @@ Below are side-by-side comparison images showing the original garment (left) and
 ### 2. Dresses
 
 <p align="center">
-  <img src=cutcomparison_051998_0 (1).jpg" alt="Dresses Comparison" width="600"/>
+  <img src="images/cutcomparison_051998_0 (1).jpg" alt="Dresses Comparison" width="600"/>
 </p>
 
 ### 3. Lower Body
