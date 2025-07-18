@@ -236,12 +236,6 @@ patterns and graphics, which previous approaches struggled to preserve.
 
 ## Demo Video
    [Watch the demo video](https://www.linkedin.com/posts/nadia-talaat-%F0%9F%87%B5%F0%9F%87%B8-46520a20b_ai-machinelearning-fashiontech-activity-7351037165654503425-kpNo?utm_source=share&utm_medium=member_desktop&rcm=ACoAADU_Dg0BzgZNaA3g_SHlWjhubhtSd447cmU)
-## Project Documentation 
-  [Download the Documenation here.](Documintation.pdf)
-  
-  ## Project Presentation
-  [Download the presentation here.](Try-On.pptx.pptx)
-  
  --- 
 
 ## Contributing
