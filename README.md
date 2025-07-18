@@ -104,15 +104,58 @@ Deploying the IDM-VTON model for virtual try-on requires a user-friendly interfa
 ### Prerequisites
 
 - Java 11+ (for Spring Boot backend)
+- MySQL (can be installed separately or via XAMPP)
 - Python 3.8+ (for AI/Gradio demo)
 - Kaggle account (for GPU access)
 - **No Node.js required for frontend** — simply open the HTML files in a browser or serve them with any static file server.
+## Getting Started
+
+### Configuration
+
+> **Note:**  
+> To run the project, create a file named `application.properties` in `shop/src/main/resources/` and fill in your own configuration (database, OAuth, etc.).  
+You can use the following template as a starting point:
+<details>
+<summary>Click to view example <code>application.properties</code></summary>
+
+```properties
+spring.application.name=shop
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:${MUSQL_PORT:3307}/${MYSQL_DB_NAME:shop}
+server.port=8081
+spring.datasource.username=${MYSQL_USER:root}
+spring.datasource.password=${MYSQL_PASSWORD: }
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.freemarker.template-loader-path=classpath:/templates/
+spring.freemarker.suffix=.ftl
+spring.freemarker.charset=UTF-8
+# google signin
+spring.security.oauth2.client.registration.google.client-id=YOUR_GOOGLE_CLIENT_ID
+spring.security.oauth2.client.registration.google.client-secret=YOUR_GOOGLE_CLIENT_SECRET
+spring.security.oauth2.client.registration.google.scope=openid,profile,email
+spring.security.oauth2.client.provider.google.authorization-uri=https://accounts.google.com/o/oauth2/v2/auth
+spring.security.oauth2.client.provider.google.token-uri=https://oauth2.googleapis.com/token
+spring.security.oauth2.client.provider.google.user-info-uri=https://www.googleapis.com/oauth2/v3/userinfo
+spring.security.oauth2.client.provider.google.user-name-attribute=sub
+# facebook
+spring.security.oauth2.client.registration.facebook.client-id=YOUR_FACEBOOK_CLIENT_ID
+spring.security.oauth2.client.registration.facebook.client-secret=YOUR_FACEBOOK_CLIENT_SECRET
+spring.security.oauth2.client.registration.facebook.redirect-uri={baseUrl}/login/oauth2/code/{registrationId}
+spring.security.oauth2.client.registration.facebook.scope=email,public_profile
+spring.security.oauth2.client.provider.facebook.authorization-uri=https://www.facebook.com/v12.0/dialog/oauth
+spring.security.oauth2.client.provider.facebook.token-uri=https://graph.facebook.com/v12.0/oauth/access_token
+spring.security.oauth2.client.provider.facebook.user-info-uri=https://graph.facebook.com/me?fields=id,name,email
+spring.security.oauth2.client.provider.facebook.user-name-attribute=id
+```
+</details>
+
 
 ### Backend Setup (Spring Boot)
 
 1. Clone the repository:
    ```bash
-   git clone <repo-url>
+   git clone clone https://github.com/Nadia269/virtual-tryon-ecommerce.git
    cd shop
    ```
 2. Build and run the backend:
@@ -167,31 +210,21 @@ Below are side-by-side comparison images showing the original garment (left) and
 ### 1. Upper Body
 
 <p align="center">
-  <img src="images/comparison_048396_0.jpg" alt="Upper Body Comparison" width="600"/>
-  <img src="images/comparison_048392_0.jpg" alt="Upper Body Comparison" width="600"/>
+   <img src="images/comparison_048396_0.jpg" alt="Upper Body Comparison" width="600"/>
    <img src="images/comparison_048397_0.jpg" alt="Upper Body Comparison" width="600"/>
 </p>
 
 ### 2. Dresses
 
 <p align="center">
-  <img src="images/comparison_051996_0.jpg" alt="Dresses Comparison" width="600"/>
-  <img src="images/comparison_051998_0 (1).jpg" alt="Dresses Comparison" width="600"/>
-  <img src="images/comparison_052026_0.jpg" alt="Dresses Comparison" width="600"/>
-  <img src="images/comparison_052021_0.jpg" alt="Dresses Comparison" width="600"/>
-  <img src="images/comparison_052025_0.jpg" alt="Dresses Comparison" width="600"/>
+   <img src="images/cutcomparison_051998_0 (1).jpg" alt="Dresses Comparison" width="600"/>
 </p>
 
 ### 3. Lower Body
 
 <p align="center">
-  <img src="images/comparison_050213_0.jpg" alt="Lower Body Comparison" width="600"/>
-  <img src="images/comparison_050206_0.jpg" alt="Lower Body Comparison" width="600"/>
-  <img src="images/comparison_050223_0.jpg" alt="Lower Body Comparison" width="600"/>
   <img src="images/comparison_050203_0.jpg" alt="Lower Body Comparison" width="600"/>
   <img src="images/comparison_050196_0.jpg" alt="Lower Body Comparison" width="600"/>
-  <img src="images/comparison_050215_0.jpg" alt="Lower Body Comparison" width="600"/>
-  <img src="images/comparison_050222_0.jpg" alt="Lower Body Comparison" width="600"/>
 </p>
 
 These visual comparisons demonstrate our model's ability to handle different
@@ -200,6 +233,16 @@ body poses. Particularly notable is the model's performance on complex
 patterns and graphics, which previous approaches struggled to preserve.
 
 ---
+
+## Demo Video
+   [Watch the demo video](https://www.linkedin.com/posts/nadia-talaat-%F0%9F%87%B5%F0%9F%87%B8-46520a20b_ai-machinelearning-fashiontech-activity-7351037165654503425-kpNo?utm_source=share&utm_medium=member_desktop&rcm=ACoAADU_Dg0BzgZNaA3g_SHlWjhubhtSd447cmU)
+## Project Documentation 
+  [Download the Documenation here.](Documintation.pdf)
+  
+  ## Project Presentation
+  [Download the presentation here.](Try-On.pptx.pptx)
+  
+ --- 
 
 ## Contributing
 
